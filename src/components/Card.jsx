@@ -1,4 +1,7 @@
 import style from './Card.module.css';
+// import ReactDOM from 'react-dom'
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 
 export default function Card(props) {
     return (
@@ -15,6 +18,10 @@ export default function Card(props) {
                 </div>
                 <p>{props.content}</p>
                 <button>Leggi di più</button>
+            </div>
+            <div className={style.delete} onClick={props.deleteArt}>
+                {/* <FontAwesomeIcon icon="fa-solid fa-trash" /> */}
+                -
             </div>
         </div>
     );

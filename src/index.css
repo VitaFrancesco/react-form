@@ -39,7 +39,14 @@ header {
 }
 
 .form {
+  border-radius: 10px;
+  background-color: rgb(198, 196, 196);
+  box-shadow: 2px 2px 4px gray, -1px -1px 6px gray;
+  margin-bottom: 100px;
+  overflow: hidden;
+  padding: 10px;
   display: flex;
   flex-direction: row;
-  margin-bottom: 50px;
+  flex-wrap: wrap;
+  gap: 15px;
 }
