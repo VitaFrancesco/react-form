@@ -37,3 +37,9 @@ header {
   padding: 10px 0;
   margin-bottom: 10px;
 }
+
+.form {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 50px;
+}
