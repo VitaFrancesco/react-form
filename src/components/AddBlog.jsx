@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import style from './AddBlog.module.css'
 
-export default function AddBlog({ onSubmit, lastId }) {
+export default function AddBlog({ onSubmit }) {
 
     const [title, setTitle] = useState('')
     const [content, setContent] = useState('')
-    const [image, setImage] = useState('../img/placeholder')
+    const [image, setImage] = useState(undefined)
     const [published, setPublished] = useState(true)
     const [tags, setTags] = useState([]);
 
@@ -14,7 +14,7 @@ export default function AddBlog({ onSubmit, lastId }) {
         e.preventDefault();
         if (title === '') return;
         const newPost = {
-            id: lastId,
+            id: Date.now(),
             title: title,
             image: image,
             content: content,
@@ -24,7 +24,7 @@ export default function AddBlog({ onSubmit, lastId }) {
         console.log(newPost)
         setTitle('');
         setContent('');
-        setImage('../img/placeholder');
+        setImage(undefined);
         setPublished(true)
         f(newPost);
     }
@@ -35,9 +35,10 @@ export default function AddBlog({ onSubmit, lastId }) {
             <form className='form' onSubmit={(event) => articleSubmit(event, onSubmit)}>
                 <input type="text" onChange={(e) => setTitle(e.target.value)} value={title} placeholder={`Titolo dell'articolo`} />
                 <select value={image} onChange={(e) => setImage(e.target.value)}>
-                    <option value="../img/post2">Koeniggseg</option>
-                    <option value="../img/post4">Panorama</option>
-                    <option value="../img/post3">Romani</option>
+                    <option defaultChecked={undefined} value={undefined}>Nessuna immagine</option>
+                    <option value="../img/post2.jpg">Koeniggseg</option>
+                    <option value="../img/post4.jpg">Panorama</option>
+                    <option value="../img/post3.jpg">Romani</option>
                 </select>
                 <label htmlFor="select-image">Seleziona l'immagine</label>
                 <textarea className={style.textarea} placeholder='Scrivi il contenuto del post qui...' onChange={(e) => setContent(e.target.value)} value={content} ></textarea>

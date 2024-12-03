@@ -9,7 +9,6 @@ function App() {
   let lastId = 5 + 1;
 
   function addArticle(newPost) {
-    lastId = lastId + 1;
     setArticle([...article, newPost]);
     console.log(article)
   }
@@ -28,7 +27,7 @@ function App() {
         {published.map((post) => (
           <Card key={post.id} title={post.title} deleteArt={() => deleteArticle(post.id)} content={post.content} image={post.image || '../img/placeholder.jpg'} tags={post.tags} />
         ))}
-        <AddBlog onSubmit={(post) => addArticle(post)} lastId={lastId} />
+        <AddBlog onSubmit={(post) => addArticle(post)} />
       </main>
       <Footer />
     </>
